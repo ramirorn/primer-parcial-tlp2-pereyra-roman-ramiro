@@ -2,7 +2,6 @@ import { DataTypes } from "sequelize";
 import { AssetModel } from "./asset.model.js";
 import { CategoryModel } from "./category.model.js";
 
-
 export const AssetCategoryModel = sequelize.define("AssetCategory", {
   id: { type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
 });
@@ -16,11 +15,13 @@ export const AssetCategoryModel = sequelize.define("AssetCategory", {
 CategoryModel.belongsToMany(AssetModel, {
   through: AssetCategoryModel,
   foreign_key: "category_id",
-  as: "assets"
-})
+  as: "assets",
+  onDelete: "CASCADE",
+});
 
-AssetModel.belongsToMany(CategoryModel,{
+AssetModel.belongsToMany(CategoryModel, {
   through: AssetCategoryModel,
   foreign_key: "asset_id",
-  as: "categories"
-})
+  as: "categories",
+  onDELETE: "CASCADE",
+});

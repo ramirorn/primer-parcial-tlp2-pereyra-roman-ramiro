@@ -41,6 +41,11 @@ const UserSchema = new Schema(
         required: false,
       }
     },
+    deletedAt: {
+      type: Date,
+      default: null,
+      required: false,
+    }
     // ! FALTA COMPLETAR ACA
   },
   { timestamps: true }
