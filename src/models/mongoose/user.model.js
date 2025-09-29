@@ -53,4 +53,14 @@ const UserSchema = new Schema(
 
 // ! FALTA COMPLETAR ACA
 
+// Populate inverso (virtual)
+UserSchema.virtual("Assets", {
+  ref: "Asset",
+  localField: "_id",
+  foreignField: "responsible",
+  justOne: false,
+})
+
+// Convertir un documento a JSON y que incluya las virtuals (como Assets) en la salida.
+UserSchema.set("toJSON", { virtuals: true });
 export const UserModel = model("User", UserSchema);
