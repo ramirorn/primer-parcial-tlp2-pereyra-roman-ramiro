@@ -20,6 +20,17 @@ const AssetSchema = new Schema(
     },
     acquisitionDate: { type: Date, required: true },
     acquisitionValue: { type: Number, required: true, min: 0 },
+    responsible: {
+      type: Schema.types.ObjectId,
+      ref: "User",
+      required: true,
+    },
+    categories: [
+      {
+        type: Schema.types.ObjectId,
+        ref: "Category"
+      }
+    ]
     // ! FALTA COMPLETAR ACA
   },
   { timestamps: true }
