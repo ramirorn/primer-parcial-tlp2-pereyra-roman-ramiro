@@ -1,3 +1,5 @@
+import { UserModel } from "../../models/mongoose/user.model.js";
+
 export const createUserValidation = [
   // TODO: completar las validaciones para crear un usuario
   body("username")
