@@ -1,7 +1,8 @@
 import { matchedData } from "express-validator";
 import { comparePassword, hashPassword } from "../helpers/bcrypt.helper.js";
 import { signToken, verifyToken } from "../helpers/jwt.helper.js";
-import { UserModel } from "../models/sequelize/user.model.js";
+import { UserModel } from "../models/mongoose/user.model.js";
+
 
 export const register = async (req, res) => {
   try {
