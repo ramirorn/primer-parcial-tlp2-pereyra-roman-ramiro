@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 
 // * funcion para crear un token con una firma secreta y un tiempo de expiración
-export const signToken = (payload) =>
+export const signToken = (user) =>
   jwt.sign( {
       id: user._id,
       email: user.email,
