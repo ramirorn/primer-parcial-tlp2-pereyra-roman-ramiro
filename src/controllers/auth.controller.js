@@ -34,10 +34,10 @@ export const register = async (req, res) => {
 };
 
 export const login = async (req, res) => {
-  const { username, password } = req.body;
+  const { email, password } = req.body;
   try {
     // TODO: buscar user, validar password, firmar JWT y setear cookie httpOnly
-    const user = await UserModel.findOne({ username });
+    const user = await UserModel.findOne({ email });
     if (!user)
       return res.status(404).json({ ok: false, msg: "Usuario no encontrado" });
 
